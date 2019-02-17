@@ -5,7 +5,7 @@ import fileinput
 
 import engine.util as util
 from .abstract_runner import AbstractRunner
-from ..simple_lxd import simple_lxd as lxd
+import simple_lxd as lxd
 
 logger = logging.getLogger(__name__)
 

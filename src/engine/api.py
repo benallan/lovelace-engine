@@ -15,9 +15,9 @@ logging.config.fileConfig(log_file_path)
 logger = logging.getLogger(__name__)
 
 import falcon
+import simple_lxd as lxd
 
 import engine.util as util
-from engine.simple_lxd import simple_lxd as lxd
 from engine.runners.python_runner import PythonRunner, FilePushError, FilePullError, EngineExecutionError
 from engine.runners.javascript_runner import JavascriptRunner
 from engine.runners.julia_runner import JuliaRunner

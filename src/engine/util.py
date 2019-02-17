@@ -5,7 +5,7 @@ import os
 import time
 import logging
 
-from .simple_lxd import simple_lxd as lxd
+import simple_lxd as lxd
 
 logger = logging.getLogger(__name__)
 
