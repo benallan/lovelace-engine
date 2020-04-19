@@ -31,6 +31,8 @@ logger = logging.getLogger(__name__)
 cwd = os.path.dirname(os.path.abspath(__file__))
 os.chdir(cwd)
 
+resources_dir = os.path.join(cwd, "..", "resources")
+
 
 class SubmitResource:
     def __init__(self):
@@ -94,7 +96,7 @@ class SubmitResource:
         # Copy static resources into engine directory and push them into the Linux container.
         static_resources = []
         for resource_file_name in problem.STATIC_RESOURCES:
-            from_path = os.path.join(cwd, "..", "resources", problem_dir, resource_file_name)
+            from_path = os.path.join(resources_dir, problem_dir, resource_file_name)
             to_path = os.path.join(cwd, resource_file_name)
 
             logger.debug("Copying static resource from {:s} to {:s}".format(from_path, to_path))
@@ -146,7 +148,7 @@ class SubmitResource:
             if "DYNAMIC_RESOURCES" in tc.input:
                 for dynamic_resource_filename in tc.input["DYNAMIC_RESOURCES"]:
                     resource_path = os.path.join(
-                        cwd, "..", "resources", problem_dir, dynamic_resource_filename
+                        resources_dir, problem_dir, dynamic_resource_filename
                     )
                     destination_path = os.path.join(cwd, dynamic_resource_filename)
 
